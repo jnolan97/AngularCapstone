@@ -1,0 +1,51 @@
+<div class="list-container">
+    <div class="todo-container column-container">
+        <div class="list"
+             cdkDropList
+             #todoList="cdkDropList"
+             [cdkDropListData]="todos"
+             [cdkDropListConnectedTo]="[progressList,doneList]"
+             (cdkDropListDropped)="onDrop($event)">
+          <h2>TODO</h2>
+          <mat-card *ngFor="let todo of todos" cdkDrag>
+            <mat-card-header>
+              <mat-card-title>{{todo.name}}</mat-card-title>
+              <mat-card-subtitle>{{todo.category}}</mat-card-subtitle>
+            </mat-card-header>
+          </mat-card>
+        </div>
+      </div>
+      <div class="progress-container column-container">
+        <div class="list"
+             cdkDropList
+             #progressList="cdkDropList"
+             [cdkDropListData]="progress"
+             [cdkDropListConnectedTo]="[doneList,todoList]"
+             (cdkDropListDropped)="onDrop($event)">
+          <h2>In Progress</h2>
+          <mat-card *ngFor="let p of progress" cdkDrag>
+            <mat-card-header>
+              <mat-card-title>{{p.name}}</mat-card-title>
+              <mat-card-subtitle>{{p.category}}</mat-card-subtitle>
+            </mat-card-header>
+          </mat-card>
+        </div>
+      </div>
+  
+      <div class="done-container column-container">
+        <div class="list"
+             cdkDropList
+             #doneList="cdkDropList"
+             [cdkDropListData]="completed"
+             [cdkDropListConnectedTo]="[progressList,todoList]"
+             (cdkDropListDropped)="onDrop($event)">
+          <h2>Completed</h2>
+          <mat-card *ngFor="let complete of completed" cdkDrag>
+            <mat-card-header>
+              <mat-card-title>{{complete.name}}</mat-card-title>
+              <mat-card-subtitle>{{complete.category}}</mat-card-subtitle>
+            </mat-card-header>
+          </mat-card>
+        </div>
+      </div>
+  </div>
