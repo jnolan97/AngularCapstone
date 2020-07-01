@@ -19,6 +19,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { LayoutModule } from '@angular/cdk/layout';
 // Import for router module inside of the shared module
 import { RouterModule } from '@angular/router';
+import { UserModule } from '../user/user.module';
 const modules = [
   CommonModule,
   MatButtonModule,
@@ -33,7 +34,8 @@ const modules = [
   MatSnackBarModule,
   MatDialogModule,
   LayoutModule,
-  RouterModule
+  RouterModule,
+  UserModule
 ]
 
 

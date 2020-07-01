@@ -8,7 +8,9 @@ import { SharedModule } from './shared/shared.module';
 import { ShowTaskComponent } from './show-task/show-task.component';
 import { AddTaskComponent } from './add-task/add-task.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { AngularFireModule } from '@angular/fire';
 import {DragDropModule, CdkDropList,CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import { environment } from 'src/environments/environment';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +24,8 @@ import {DragDropModule, CdkDropList,CdkDragDrop, moveItemInArray, transferArrayI
     SharedModule,
     ReactiveFormsModule,
     FormsModule,
-    DragDropModule
+    DragDropModule,
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [],
   bootstrap: [AppComponent]

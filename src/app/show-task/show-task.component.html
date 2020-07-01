@@ -1,5 +1,5 @@
 <div class="list-container">
-    <div class="todo-container column-container">
+    <!-- <div class="todo-container column-container">
         <div class="list"
              cdkDropList
              #todoList="cdkDropList"
@@ -9,12 +9,26 @@
           <h2>TODO</h2>
           <mat-card *ngFor="let todo of todos" cdkDrag>
             <mat-card-header>
-              <mat-card-title>{{todo.name}}</mat-card-title>
-              <mat-card-subtitle>{{todo.category}}</mat-card-subtitle>
+              <mat-card-title>{{todo.taskName}}</mat-card-title>
+              <mat-card-subtitle>{{todo.taskDesc}}</mat-card-subtitle>
             </mat-card-header>
           </mat-card>
         </div>
-      </div>
+      </div> -->
+      <h2>TODOs</h2>
+      <div class="list"
+      cdkDropList
+      #todoList="cdkDropList"
+      [cdkDropListData]="taskData"
+      [cdkDropListConnectedTo]="[progressList,doneList]"
+      (cdkDropListDropped)="onDrop($event)">
+          <mat-card *ngFor ="let task of taskData" cdkDrag>
+                    <mat-card-header>
+                      <mat-card-title>{{ task.taskName }}</mat-card-title>
+                      <mat-card-subtitle>{{ task.taskDesc }}</mat-card-subtitle>
+                    </mat-card-header>
+            </mat-card>
+        </div>
       <div class="progress-container column-container">
         <div class="list"
              cdkDropList
@@ -25,8 +39,8 @@
           <h2>In Progress</h2>
           <mat-card *ngFor="let p of progress" cdkDrag>
             <mat-card-header>
-              <mat-card-title>{{p.name}}</mat-card-title>
-              <mat-card-subtitle>{{p.category}}</mat-card-subtitle>
+              <mat-card-title>{{p.taskName}}</mat-card-title>
+              <mat-card-subtitle>{{p.taskDesc}}</mat-card-subtitle>
             </mat-card-header>
           </mat-card>
         </div>
@@ -42,8 +56,8 @@
           <h2>Completed</h2>
           <mat-card *ngFor="let complete of completed" cdkDrag>
             <mat-card-header>
-              <mat-card-title>{{complete.name}}</mat-card-title>
-              <mat-card-subtitle>{{complete.category}}</mat-card-subtitle>
+              <mat-card-title>{{complete.taskName}}</mat-card-title>
+              <mat-card-subtitle>{{complete.taskDesc}}</mat-card-subtitle>
             </mat-card-header>
           </mat-card>
         </div>

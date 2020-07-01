@@ -1,5 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {DragDropModule, CdkDropList,CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { UserService } from '../user/user.service';
+interface taskData {
+  taskName: string,
+  taskDesc: string,
+  taskStatus: string
+
+}
 @Component({
   selector: 'app-show-task',
   templateUrl: './show-task.component.html',
@@ -7,49 +15,46 @@ import {DragDropModule, CdkDropList,CdkDragDrop, moveItemInArray, transferArrayI
 })
 export class ShowTaskComponent implements OnInit {
 
-  constructor() { }
+  constructor(private afs: AngularFirestore, private userServ: UserService) { }
+  dataArray = [];
   todos = [
     {
-      name: 'Angular',
-      category: 'Web Development'
+      taskName: 'Angular',
+      taskDesc: 'Web Development'
     },
     {
-      name: 'Flexbox',
-      category: 'Web Development'
-    },
-    {
-      name: 'iOS',
-      category: 'App Development'
-    },
-    {
-      name: 'Java',
-      category: 'Software development'
+      taskName: 'Flexbox',
+      taskDesc: 'Web Development'
     }
   ];
   progress = [
     {
-      name: 'Draggable items',
-      category: 'Angular'
+      taskName: 'Draggable items',
+      taskDesc: 'Angular'
     }
   ];
   completed = [
     {
-      name: 'Android',
-      category: 'Mobile Development'
+      taskName: 'Android',
+      taskDesc: 'Mobile Development'
     },
     {
-      name: 'MongoDB',
-      category: 'Databases'
-    },
-    {
-      name: 'ARKit',
-      category: 'Augmented Reality'
-    },
-    {
-      name: 'React',
-      category: 'Web Development'
+      taskName: 'MongoDB',
+      taskDesc: 'Databases'
     }
   ];
+  taskData;
+  private getTaskData(){
+    this.afs.collection('tasks').valueChanges().subscribe(data => {
+      console.log(data)
+      this.taskData = data
+      /* .get() version of querying firebase firestore
+      this.afs.collection('nbaPlayers').ref.get().then(data => {
+        this.playerdata = data
+      })
+      */
+    })
+  }
   onDrop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data,
@@ -62,6 +67,8 @@ export class ShowTaskComponent implements OnInit {
     }
   }
   ngOnInit(): void {
+    this.userServ.getUser().then(data => console.log(data))
+    this.getTaskData()
   }
 
 }
