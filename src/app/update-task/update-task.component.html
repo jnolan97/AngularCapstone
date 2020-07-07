@@ -1,1 +1,23 @@
-<p>update-task works!</p>
+<div class="container">
+    <h1>Add Task</h1>
+
+    <form [formGroup]="updateTaskForm" (ngSubmit)="updateTask()" >
+        <mat-form-field>
+            <mat-label>Task</mat-label>
+            <input type="text" matInput placeholder="Task Name" formControlName="taskName">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Description</mat-label>
+            <input type="text" matInput placeholder="Description" formControlName="taskDesc">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Status</mat-label>
+            <input type="text" matInput placeholder="Description" formControlName="taskStatus">
+        </mat-form-field>
+        <br>
+        <button type="submit" mat-raised-button>Submit</button>
+        <br>
+    </form>
+</div>

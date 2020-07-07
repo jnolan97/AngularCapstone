@@ -3,6 +3,7 @@ import {DragDropModule, CdkDropList,CdkDragDrop, moveItemInArray, transferArrayI
 import { AngularFirestore } from '@angular/fire/firestore';
 import { UserService } from '../user/user.service';
 import { Observable, BehaviorSubject, combineLatest } from 'rxjs';
+import {Router} from '@angular/router';
 interface taskData {
   id: string,
   taskName: string,
@@ -33,7 +34,7 @@ export class ShowTaskComponent implements OnInit {
   taskData;
   progressData;
   completeData;
-  constructor(private afs: AngularFirestore, private userServ: UserService) {
+  constructor(private afs: AngularFirestore, private userServ: UserService, private router: Router) {
 
   }
 
@@ -80,7 +81,9 @@ export class ShowTaskComponent implements OnInit {
       })
     }
 
-
+btnClick= function (id) {
+    this.router.navigateByUrl(`/updatetask/${id}`);
+};
 delTask(id){
   this.afs.collection('tasks').valueChanges().subscribe(data =>{
     console.log(data)

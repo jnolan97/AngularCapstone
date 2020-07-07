@@ -10,7 +10,8 @@
                     <mat-card-header>
                       <mat-card-title>{{ task.taskName }}</mat-card-title>
                       <mat-card-subtitle>{{ task.taskDesc }}</mat-card-subtitle>
-                      <button mat-button color="warn" (click)="delTask(task.id)">Delete</button>
+                      <button mat-raised-button color="warn" (click)="delTask(task.id)">Delete</button>
+                      <button mat-raised-button color="primary" (click)="btnClick(task.id)">Update</button>
                     </mat-card-header>
             </mat-card>
         </div>
@@ -27,7 +28,8 @@
             <mat-card-header>
               <mat-card-title>{{ progress.value.taskName }}</mat-card-title>
               <mat-card-subtitle>{{ progress.value.taskDesc }}</mat-card-subtitle>
-              <button mat-button color="warn" (click)="delTask(progress.value.id)">Delete</button>
+              <button mat-raised-button color="warn" (click)="delTask(progress.value.id)">Delete</button>
+              <button mat-raised-button color="primary" (click)="btnClick(progress.value.id)">Update</button>
             </mat-card-header>
           </mat-card>
         <!-- </div> -->
@@ -46,7 +48,8 @@
             <mat-card-header>
               <mat-card-title>{{ c.taskName }}</mat-card-title>
               <mat-card-subtitle>{{ c.taskDesc }}</mat-card-subtitle>
-              <button mat-button color="warn" (click)="delTask(c.id)">Delete</button>
+              <button mat-raised-button color="warn" (click)="delTask(c.id)">Delete</button>
+              <button mat-raised-button color="primary" (click)="btnClick(c.id)">Update</button>
               <!-- <button mat-button color="warn" (click)="gettingData()">Test</button> -->
             </mat-card-header>
           </mat-card>
