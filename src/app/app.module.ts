@@ -11,11 +11,13 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
 import {DragDropModule, CdkDropList,CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 import { environment } from 'src/environments/environment';
+import { UpdateTaskComponent } from './update-task/update-task.component';
 @NgModule({
   declarations: [
     AppComponent,
     ShowTaskComponent,
-    AddTaskComponent
+    AddTaskComponent,
+    UpdateTaskComponent
   ],
   imports: [
     BrowserModule,
