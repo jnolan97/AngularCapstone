@@ -2,7 +2,7 @@
     transform: translateY(-3px);
     box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
 }
-.mat-card:hover,.mat-card-header:hover{
+.mat-card:hover{
     background-image: linear-gradient(-180deg,#800020,#ff6600 90%);
 }
 .mat-raised-button{
@@ -14,13 +14,13 @@
     box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
 }
 
-.mat-card, .mat-card-header {
-    background-color: #eb7a34;
-}
+// .mat-card, .mat-card-header {
+//     background-color: #eb7a34;
+// }
 .mat-card {
     border: 2px solid black;
 }
 
-.list-container {
-    background-color: #ff6600;
-}
+// .list-container {
+//     background-color: #ff6600;
+// }

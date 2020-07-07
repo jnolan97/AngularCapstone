@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../user/user.service';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-task',
   templateUrl: './add-task.component.html',
@@ -19,7 +20,7 @@ export class AddTaskComponent implements OnInit {
     taskStatus: new FormControl('',Validators.required)
   })
 
-  constructor(private userServ: UserService,private afs: AngularFirestore) { }
+  constructor(private userServ: UserService,private afs: AngularFirestore, private router: Router) { }
 
   getTaskData(){
     console.log(this.addTaskForm.value)
@@ -29,6 +30,7 @@ export class AddTaskComponent implements OnInit {
       taskStatus: this.addTaskForm.value.taskStatus
     })
     this.addTaskForm.reset()
+    this.router.navigateByUrl('/showtask')
   }
 
   ngOnInit(): void {

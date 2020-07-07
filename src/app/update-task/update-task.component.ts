@@ -17,7 +17,7 @@ export class UpdateTaskComponent implements OnInit {
     taskStatus: new FormControl('',Validators.required)
   })
 
-  constructor(private afs: AngularFirestore, private actve: ActivatedRoute) { }
+  constructor(private afs: AngularFirestore, private actve: ActivatedRoute, private router: Router) { }
 
   updateTask(){
     //this.taskID = this.actve.snapshot.queryParamMap.get("/:id")
@@ -34,6 +34,7 @@ export class UpdateTaskComponent implements OnInit {
       taskStatus: this.updateTaskForm.value.taskStatus
     })
     this.updateTaskForm.reset()
+    this.router.navigateByUrl('/showtask')
   }
 
   ngOnInit(): void {
