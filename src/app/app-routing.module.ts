@@ -4,7 +4,6 @@ import { ShellComponent } from './shared/shell/shell.component';
 import { AddTaskComponent } from './add-task/add-task.component';
 import { ShowTaskComponent } from './show-task/show-task.component';
 import { UpdateTaskComponent } from './update-task/update-task.component';
-import { AuthGuardService as AuthGuard } from './services/auth-guard.service';
 import { UserService } from './user/user.service'
 const routes: Routes = [
   {
