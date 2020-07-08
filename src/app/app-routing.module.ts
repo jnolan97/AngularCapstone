@@ -1,19 +1,22 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, CanActivate } from '@angular/router';
 import { ShellComponent } from './shared/shell/shell.component';
 import { AddTaskComponent } from './add-task/add-task.component';
 import { ShowTaskComponent } from './show-task/show-task.component';
 import { UpdateTaskComponent } from './update-task/update-task.component';
-
+import { AuthGuardService as AuthGuard } from './services/auth-guard.service';
+import { UserService } from './user/user.service'
 const routes: Routes = [
   {
     path: 'shared', component: ShellComponent
   },
   {
-    path: 'addtask', component: AddTaskComponent
+    path: 'addtask', component: AddTaskComponent,
+    canActivate: [UserService]
   },
   {
-    path: 'showtask', component: ShowTaskComponent
+    path: 'showtask', component: ShowTaskComponent,
+    canActivate: [UserService]
   },
   {
     path: 'updatetask/:id', component: UpdateTaskComponent

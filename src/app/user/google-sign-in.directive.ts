@@ -15,6 +15,15 @@ export class GoogleSigninDirective {
   onClick(){
     this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider)
   }
-
-
+  checkForUser() {
+  console.log(firebase.auth.GoogleAuthProvider)
+  }
+  // @HostListener('click')
+  // logout(){
+  //   this.afAuth.signOut()
+  //   console.log("Success")
+  // }
+  ngOnInit(): void {
+    this.checkForUser()
+  }
 }
